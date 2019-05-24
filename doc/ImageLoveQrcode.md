@@ -19,29 +19,6 @@ Color 参数需要传入三原色(R、G、B)，这里讲一个获取三原色的
 
 [visual-qr-code](https://gitee.com/boat824109722/visual-qr-code)
 
+## 输出效果
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+![](targetImage7.png)
