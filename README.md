@@ -5,4 +5,5 @@ MiniTool 记录 HL 日常积累的比较好玩的工具。有部分是自己写�
 # 当前累计
 
 - [HexLoveImage](doc/HexLoveImage.md) (图片二进制数据 和 十六进制间的互相转换)
-- [ImageLoveQrCode](doc/ImageLoveQrcode.md) (带背景生成图样的图片)
+- [ImageLoveQrCode](doc/ImageLoveQrcode.md) (生成带背景图的二维码)
+- [HaveARoll](doc/HaveARoll.md) (JS抽奖小程序)

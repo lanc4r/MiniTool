@@ -63,51 +63,19 @@ function changeMsgColorAfter(obj){
 	msg_a.style.color = "black";
 }
 
-
-
-
-/*
-	开始之后的 逻辑部分了
-*/
-
-// 从数组中移除指定值
-/*function removeByValue(arr, val) {
-  for(var i=0; i<arr.length; i++) {
-    if(arr[i] == val) {
-      arr.splice(i, 1);
-      break;
-    }
-  }
-}*/
-
-
-
 function readAsText(){  
 	var file = document.getElementById("file").files[0];  
 	var reader = new FileReader();  
 	//将文件以文本形式读入页面  
 	reader.readAsText(file);  
 	reader.onload=function(f){  
-
-
 		$("data").innerHTML = this.result; 
-
-		//var result=document.getElementById("result");  
-		//显示文件  
-		//result.innerHTML=this.result; 
     } 
 }  
 
 
 // 加载字符串到全局变量
 function initData(){
-	// 临时数组用于保存读取拆分的字符
-	//var tempStrArr = $("data").innerHTML.split("\n");
-
-	// 遍历数组，然后将其保存到 num_arr 中
-	//for (var i = 0; i < tempStrArr.length; i++) {
-	//	num_arr.push(tempStrArr[i]);
-	//}
 	dataArr = $("data").innerHTML.split("\n");
 	// 初始化结果容器相关数据，将当前显示容器和容器总数都置为1
 	viewContainerFlag = 1;
@@ -130,9 +98,6 @@ function initNum(){
 
 // 获取随机的一个值，然后返回这个值，并且让其在数组中删除掉
 function controllLoop(){
-	
-	//var chick_button = $("chick_button");
-
 	if (randomButton.value == "Run"){
 		if (currentRandomFlag == totalRandomCount){
 			exitLoop();
@@ -259,7 +224,6 @@ function beforeViewDiv(){
 		var closeContainerId = viewContainerName + (viewContainerFlag);
 		var openContainerId = viewContainerName + (--viewContainerFlag);
 		setViewShowAndHide($(openContainerId), $(closeContainerId));
-		//changeContainerView(openContainerId, closeContainerId);
 	}
 }
 
@@ -272,7 +236,6 @@ function nextViewDiv(){
 		var closeContainerId = viewContainerName + (viewContainerFlag);
 		var openContainerId = viewContainerName + (++viewContainerFlag);
 		setViewShowAndHide($(openContainerId), $(closeContainerId));
-		//changeContainerView(openContainerId, closeContainerId);
 	}
 }
 
