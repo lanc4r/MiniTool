@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'cuteFont';
+    src: url('cuteFont.ttf') format('truetype');
+}
+
+a {
+	font-family: 'cuteFont';
+}
+
+body {
+	background-color: #fcfbf6;
+}

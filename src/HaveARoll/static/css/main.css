@@ -1,0 +1,156 @@
+@font-face {
+    font-family: 'cuteFont';
+    src: url('cuteFont.ttf') format('truetype');
+}
+
+a{
+	text-decoration:none;
+}
+
+#main{
+	position: absolute;
+	left: 17%;
+	top: 7%;
+	width: 700px;
+	height: 600px;
+	/*border: 1px red solid;*/
+}
+
+#resultContainer{
+	position: absolute;
+	left: 65%;
+	top: 1%;
+	width: 400px;
+	height: 700px;
+}
+
+
+#naviger{
+	margin-top: 10%;
+	margin-left: 5%;
+	width: 350px;
+	height: 50px;
+}
+
+#view{
+	float: left;
+	margin-top: 5%;
+	margin-left: 2%;
+	width: 390px;
+	height: 450px;
+	font-family: 'cuteFont';
+}
+
+#view1, #view2, #view3, #view4, #view5, #view6, #view7, #view8, #view9, #view10{
+	margin-top: 5%;
+	margin-left: 5%;
+	width: 350px;
+	height: 550px;
+}
+
+
+.num{
+	margin-top: 2%;
+	margin-left: 5%;
+	float: left;
+	height: 30px;
+	text-align: center;
+	vertical-align: middle;
+	font-family: 'cuteFont';
+	font-size: 18px;
+}
+
+/* 显示 随机变化的数字 */
+#view_num{
+	left: 1%;
+	top: 1%;
+	width: 500px;
+	height: 200px;
+	text-align: center;
+	line-height: 200px;
+	overflow: hidden;
+	font-size: 70px;
+	color: red;
+	font-family: 'cuteFont';
+}
+
+
+/* 上一页 下一页 按钮的样式 */
+#Change-page1, #Change-page2{
+	font-family: 'cuteFont'; 
+	font-size: 20px;
+	margin-left: 20%;
+	color: black;
+}
+
+
+#Introduce{
+	font-size: 40px;
+	position: absolute;
+	margin-left: 13%;
+	padding-bottom: 1%;
+	font-family: 'cuteFont';
+}
+
+#header{
+	margin-left: 13%;
+	margin-top: 10%;
+	width: 500px;
+	height: 40px;
+	border: 3px double #000000;
+	line-height:35px;
+}
+
+
+#import_data, #choose_random_count, #choose_next_option{
+	font-family: 'cuteTo';
+	margin-top: 1%;
+	margin-left: 13%;
+	width: 500px;
+	height: 450px;
+	/*border: 1px blue solid;*/
+	font-size: 18px;
+}
+
+#random{
+	font-family: 'cuteTo';
+	margin-top: 1%;
+	margin-left: 13%;
+	width: 550px;
+	height: 450px;
+	/*border: 1px blue solid;*/
+	font-size: 18px;
+}
+
+
+#words_2{
+	margin-left: 7%;
+	font-family: 'cuteFont';
+	width: 500px;
+	float: left;
+	font-size: 22px;
+}
+
+#random_count{
+	font-family: 'cuteFont';
+	font-size: 30px;
+}
+
+
+#Footer{
+	margin-left: 36%;
+	margin-top: 3%;
+	font-family: 'cuteFont';
+	line-height: 1.0;
+}
+
+#Footer-text{
+	font-size: 16px;
+	font-weight: 900;
+	margin-left: 4%;
+}
+
+#Footer-copyright{
+	font-size: 12px;
+	font-weight: 900;
+}

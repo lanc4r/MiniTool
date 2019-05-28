@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Randomer</title>
+	<link rel="stylesheet" type="text/css" href="./static/css/main.css"/>
+	<link rel="stylesheet" type="text/css" href="./static/css/style.css"/>
+	<meta charset="utf-8" />
+	<link rel="shortcut icon" href="./static/images/final2.ico" /> 
+</head>
+<body style="overflow-x: hidden; overflow-y: hidden;">
+	<div id="main">
+		<div id="Introduce">Randomer</div>
+		<div id="header">
+			<span id="header-content-home" style="text-align: center; display: inline-block; width: 70px; margin-left: 15%; font-size: 20px; vertical-align: middle; border-radius: 3px; background-color: #fcfbf6;"><a href="#" id="home_a" style="color: black;" onmouseover="changeMsgColorBefore(this)" onmouseout="changeMsgColorAfter(this)">Home</a></span>
+			<span id="header-content-art" style="text-align: center; display: inline-block; width: 73px; margin-left: 10%; font-size: 20px; vertical-align: middle; border-radius: 3px; background-color: #fcfbf6;"><a href="#" id="artical_a" style="color: black;" onmouseover="changeMsgColorBefore2(this)" onmouseout="changeMsgColorAfter(this)">Result</a></span>
+			<span id="header-content-about" style="text-align: center; display: inline-block; width: 73px; margin-left: 10%; font-size: 20px; vertical-align: middle; border-radius: 3px; background-color: #fcfbf6;"><a href="http://chllan.cc" id="about_a" style="color: black;" onmouseover="changeMsgColorBefore(this)" onmouseout="changeMsgColorAfter(this)">About</a></span>
+		</div>
+		<div id="import_data" style="display: block;">
+			<div id="words_2">
+				<p>Choose File For Upload1ng Data:</p>
+				<input type="file" id="file" size="30" style="border-radius: 0.45em; cursor: pointer; width: 150px; height: 40px; font-family: 'cuteFont'; font-size: 18px; text-align: center;"/>&nbsp;&nbsp;&nbsp;
+				<input type="button" value="Upload" onclick="readAsText();" style="border-radius: 0.45em; cursor: pointer; width: 100px; height: 40px; font-family: 'cuteFont'; font-size: 18px; text-align: center;"/>
+				<textarea id="data" style="width: 400px; height: 200px;"></textarea>
+				<input type="button" value="Confirm" style="border-radius: 0.45em; cursor: pointer; width: 150px; height: 40px; font-family: 'cuteFont'; font-size: 18px; text-align: center;" onclick="initData();">
+			</div>
+		</div>
+
+		<!-- 第二框用来选择需要抽取的个数 -->
+		<div id="choose_random_count" style="display: none;">
+			<!-- 做一个显示比较大的框，来显示 滚动效果，然后在右边的 显示地方显示出来 -->
+			<div id="words_2">
+				<p>Choose Count Your Want Random:
+				<select id="random_count" name="random_count">
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+					<option value="7">7</option>
+					<option value="8">8</option>
+					<option value="9">9</option>
+					<option value="10">10</option>
+					<option value="11">11</option>
+					<option value="12">12</option>
+					<option value="13">13</option>
+					<option value="14">14</option>
+					<option value="15">15</option>
+					<option value="16">16</option>
+					<option value="17">17</option>
+					<option value="18">18</option>
+					<option value="19">19</option>
+					<option value="20">20</option>
+				</select></p>
+				<input type="button" value="Confirm" style="border-radius: 0.45em; cursor: pointer; width: 150px; height: 40px; font-family: 'cuteFont'; font-size: 18px; text-align: center;" onclick="initNum();">		
+			</div>
+		</div>
+
+
+		<!-- 第三个框用于显示 滚搜索过程 -->
+		<div id="random" style="display: none;">
+			<!-- 做一个显示比较大的框，来显示 滚动效果，然后在右边的 显示地方显示出来 -->
+			<div id="words_2">
+				<p style="font-size: 32px;">Let We Start The Ramdom!!!</p>
+				<div id="view_num"></div>
+				<input name="chick_button" id="chick_button" type="button" value="Run" style="border-radius: 0.45em; cursor: pointer; width: 150px; height: 40px; font-family: 'cuteFont'; font-size: 18px; text-align: center; margin-top: 10%; margin-left: 30%;" onclick="controllLoop();">		
+			</div>
+		</div>
+
+		<!-- 这一个主要用于判断用户是准备 继续选择抽取 还是 重新来过(导入新的数据) -->
+		<div id="choose_next_option" style="display: none;">
+			<!-- 做一个显示比较大的框，来显示 滚动效果，然后在右边的 显示地方显示出来 -->
+			<div id="words_2">
+				<p style="font-size: 37px; margin-left: 13%; color: red;">Make Your Choices</p>
+				<input name="chick_button" id="chick_button_continue" type="button" value="Continue" style="border-radius: 0.45em; cursor: pointer; width: 150px; height: 40px; font-family: 'cuteFont'; font-size: 18px; text-align: center; margin-top: 10%; margin-left: 10%;" onclick="chooseContinue();">		
+				<input name="chick_button" id="chick_button_restart" type="button" value="Restart" style="border-radius: 0.45em; cursor: pointer; width: 150px; height: 40px; font-family: 'cuteFont'; font-size: 18px; text-align: center; margin-top: 10%; margin-left: 10%;" onclick="chooseRestart();">	
+			</div>
+		</div>
+
+		<!-- CopyRight -->
+		<div id="Footer">
+	            <p id="Footer-text">Powered by Lanc4r</p>
+	            <p id="Footer-copyright">©Copyright 2016-2099 Lanc4r</p>
+	    </div>
+	</div>
+
+	<!-- 这里的 div 用与保存每次存储后的结果的结果!  界面写好点就行了 -->
+	<div id="resultContainer">
+		<div id="naviger">
+			<a href="#" id="Change-page1" onclick="beforeViewDiv();" onmouseover="changeMsgColorBefore(this)" onmouseout="changeMsgColorAfter(this)"> Previous </a> 
+			<a href="#" id="Change-page2" onclick="nextViewDiv();" onmouseover="changeMsgColorBefore(this)" onmouseout="changeMsgColorAfter(this)"> Next </a>
+		</div>
+
+		<div id="view_container_1" style="display: block;"><span style="color: gray; margin-left: 38%; margin-top: 2%; font-family: 'cuteFont'; font-size: 20px;">Group-1</span><div id="view"></div></div>
+
+	<script src="./static/js/main.js"></script>
+</body>
+</html>

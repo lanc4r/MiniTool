@@ -1,0 +1,42 @@
+body{
+	/*margin: 0px;*/
+}
+
+#artical_main{
+	position: absolute;
+	left: 25%;
+	width: 750px;
+	height: 1500px;
+	border: 1px red solid;
+}
+
+#artical_header{
+	margin-left: 16%;
+	margin-top: 20%;
+	width: 500px;
+	height: 35px;
+	border: 1px red solid;
+	line-height:35px;
+}
+
+#header-content{
+	margin-left: 11%;
+	font-size: 17px;
+	vertical-align: middle;
+}
+
+#articals{
+	margin-left: 1%;
+	margin-top: 5%;
+	width: 735px;
+	height: 1000px;
+	border: 1px blue solid;
+}
+
+#artical_hr{
+	margin-top: 2%;
+	border: 0;
+	height: 1px;
+	background-color: silver;
+	width: 730px;
+}
