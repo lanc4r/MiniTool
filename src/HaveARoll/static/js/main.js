@@ -28,6 +28,8 @@ var importDataView;
 var chooseRandonCountView;
 var randomView;
 var chooseNextOptionView;
+// 增加图片容器
+var imageDataView;
 
 function $(id){
 	return document.getElementById(id);
@@ -40,6 +42,7 @@ window.onload = function (){
 	randomView = $("random");
 	chooseNextOptionView = $("choose_next_option");
 	viewNum = $("view_num");
+	imageDataView = $("image_data");
 	// 获取结果显示容器
 	resultContainer = $('resultContainer');
 	// 随机按钮
@@ -245,4 +248,73 @@ function setViewShowAndHide(showView, hideView){
 	hideView.style.display = "none";
 }
 
+
+/*****************************************  二期增加图片的操作  ******************************************************/
+function showImageView(){
+	// 除了导入图片区域，区域区域全部隐藏
+	setViewShowAndHide(imageDataView, importDataView);
+	setViewShowAndHide(imageDataView, chooseRandonCountView);
+	setViewShowAndHide(imageDataView, randomView);
+	setViewShowAndHide(imageDataView, chooseNextOptionView);
+}
+
+function fileSelect1(e){
+	var files = e.files;
+
+	// 新的逻辑将上传的图片添加到一个框中
+	var boxs = $("boxs");
+
+	//var show = $('img-box');
+	for (var i=0; i<files.length; ++i){
+
+		// 循环将每一张图片设置为
+		var reader = new FileReader();
+		reader.onload = (function (file){
+			return function(e){
+				//var img = document.createElement('img');
+				//img.setAttribute("src", this.result);
+				//img.setAttribute("class", "cover-img");
+				//show.appendChild(img);
+				createImg(this.result, boxs);
+			};
+		})(files[i]);
+		reader.readAsDataURL(files[i]);
+		console.log(files[i]);
+	}
+}
+
+// 传入 base64 编码的数值，生成一个图片 div，并将其添加到父节点中
+function createImg(content, parent){
+	var img = document.createElement('img');
+	img.setAttribute("src", content);
+
+	var divDelete = document.createElement('div');
+	divDelete.innerHTML = "x";
+	divDelete.setAttribute("class", "delete");
+	divDelete.addEventListener("click", function (){
+		removeImg(this);
+	});
+	//divDelete.setAttribute("onclick", "removeImg(this);");
+
+	var div = document.createElement('div');
+	div.setAttribute("class", "box");
+
+	div.appendChild(img);
+	div.appendChild(divDelete);
+	parent.appendChild(div);
+
+	/*
+	var img = $("<img src=" + content + ">");
+	var divDelete = $("<div class='delete' onclick='removeImg(this);'>x</div>");
+	var div = $("<div class='box'></div>");
+	div.append(img);
+	div.append(divDelete);
+	parent.append(div);*/
+}
+
+function removeImg(obj){
+	//$(obj).parent().remove();
+	//  妈耶，真的服了 JS，难写得一批
+	obj.parentNode.parentNode.removeChild(obj.parentNode)
+}
 

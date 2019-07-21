@@ -6,15 +6,18 @@
 	<link rel="stylesheet" type="text/css" href="./static/css/style.css"/>
 	<meta charset="utf-8" />
 	<link rel="shortcut icon" href="./static/images/final2.ico" /> 
+	<script src="static/js/jquery.js"></script>
 </head>
 <body style="overflow-x: hidden; overflow-y: hidden;">
 	<div id="main">
 		<div id="Introduce">Randomer</div>
 		<div id="header">
 			<span id="header-content-home" style="text-align: center; display: inline-block; width: 70px; margin-left: 15%; font-size: 20px; vertical-align: middle; border-radius: 3px; background-color: #fcfbf6;"><a href="#" id="home_a" style="color: black;" onmouseover="changeMsgColorBefore(this)" onmouseout="changeMsgColorAfter(this)">Home</a></span>
-			<span id="header-content-art" style="text-align: center; display: inline-block; width: 73px; margin-left: 10%; font-size: 20px; vertical-align: middle; border-radius: 3px; background-color: #fcfbf6;"><a href="#" id="artical_a" style="color: black;" onmouseover="changeMsgColorBefore2(this)" onmouseout="changeMsgColorAfter(this)">Result</a></span>
+			<span id="header-content-art" style="text-align: center; display: inline-block; width: 73px; margin-left: 10%; font-size: 20px; vertical-align: middle; border-radius: 3px; background-color: #fcfbf6;"><a href="#" id="artical_a" style="color: black;" onmouseover="changeMsgColorBefore2(this)" onmouseout="changeMsgColorAfter(this)" onclick="showImageView();">Result</a></span>
 			<span id="header-content-about" style="text-align: center; display: inline-block; width: 73px; margin-left: 10%; font-size: 20px; vertical-align: middle; border-radius: 3px; background-color: #fcfbf6;"><a href="http://chllan.cc" id="about_a" style="color: black;" onmouseover="changeMsgColorBefore(this)" onmouseout="changeMsgColorAfter(this)">About</a></span>
 		</div>
+
+		<!-- 文本数据导入区域 -->
 		<div id="import_data" style="display: block;">
 			<div id="words_2">
 				<p>Choose File For Upload1ng Data:</p>
@@ -22,6 +25,19 @@
 				<input type="button" value="Upload" onclick="readAsText();" style="border-radius: 0.45em; cursor: pointer; width: 100px; height: 40px; font-family: 'cuteFont'; font-size: 18px; text-align: center;"/>
 				<textarea id="data" style="width: 400px; height: 200px;"></textarea>
 				<input type="button" value="Confirm" style="border-radius: 0.45em; cursor: pointer; width: 150px; height: 40px; font-family: 'cuteFont'; font-size: 18px; text-align: center;" onclick="initData();">
+			</div>
+		</div>
+
+		<!-- 图片数据导入区域 -->
+		<div>
+			<div id="image_data" style="display: none;">
+				<div id="words_2">
+					<p>Choose File For Upload1ng Data:</p>
+					<input type="file" id="file" size="30" multiple="multiple" onchange="fileSelect1(this);" style="border-radius: 0.45em; cursor: pointer; width: 150px; height: 40px; font-family: 'cuteFont'; font-size: 18px; text-align: center;"/>
+					<div class="boxs" id="boxs">
+						
+					</div>
+				</div>
 			</div>
 		</div>
 
@@ -93,6 +109,7 @@
 
 		<div id="view_container_1" style="display: block;"><span style="color: gray; margin-left: 38%; margin-top: 2%; font-family: 'cuteFont'; font-size: 20px;">Group-1</span><div id="view"></div></div>
 
+	<script src="static/js/jquery.js"></script>
 	<script src="./static/js/main.js"></script>
 </body>
 </html>

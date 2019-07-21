@@ -102,7 +102,7 @@ a{
 }
 
 
-#import_data, #choose_random_count, #choose_next_option{
+#import_data, #choose_random_count, #choose_next_option, #image_data{
 	font-family: 'cuteTo';
 	margin-top: 1%;
 	margin-left: 13%;
@@ -153,4 +153,48 @@ a{
 #Footer-copyright{
 	font-size: 12px;
 	font-weight: 900;
+}
+
+
+/***************************************  新增图片抽奖  *********************************************/
+.boxs {
+	width: 430px;
+	height: 300px;
+	border: 1px solid red;
+	overflow: auto;
+}
+
+.box {
+	width: 100px;
+	height: 80px;
+	margin-top: 10px;
+	margin-left: 10px;
+	float: left;
+	border: 1px solid red;
+	display : inline-block;
+    position : relative;
+}
+
+.box img{
+	width: 100px;
+}
+
+.box .delete{
+    position : absolute;
+    top : 5px;
+    right : 5px;
+    text-align: center;
+    cursor: pointer;
+    width : 20px;
+    height : 20px;
+    line-height: 19px;
+    font-color: #ececec;
+    border-radius: 100%;
+    opacity: 0.5;
+    background-color: white;
+}
+
+#boxs {
+	width: 430px;
+	height: 200px;
 }
