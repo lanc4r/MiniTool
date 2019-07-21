@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>先试试能不能支持多个文件上传</title>
+	<script src="../static/js/jquery.js"></script>
+	<style type="text/css">
+		.boxs {
+			width: 1200px;
+			height: 600px;
+			border: 1px solid red;
+		}
+
+		.box {
+			width: 350px;
+			height: 280px;
+			margin-top: 10px;
+			margin-left: 10px;
+			float: left;
+			border: 1px solid red;
+			display : inline-block;
+            position : relative;
+		}
+
+		.box img{
+			width: 300px;
+		}
+
+        .box .delete{
+            position : absolute;
+            top : 5px;
+            right : 5px;
+            text-align: center;
+            cursor: pointer;
+            width : 20px;
+            height : 20px;
+            line-height: 19px;
+            font-color: #ececec;
+            border-radius: 100%;
+            opacity: 0.5;
+            background-color: white;
+        }
+	</style>
+</head>
+<body>
+	<form action="#">
+		<input type="file" name="files" multiple="multiple" onchange="fileSelect1(this);">
+	</form>
+
+	<div class="boxs" id="boxs">
+		
+	</div>
+
+	<script type="text/javascript">
+
+		function fileSelect1(e){
+			var files = e.files;
+
+			// 新的逻辑将上传的图片添加到一个框中
+			var boxs = $("#boxs");
+
+			//var show = $('img-box');
+			for (var i=0; i<files.length; ++i){
+
+				// 循环将每一张图片设置为
+				var reader = new FileReader();
+				reader.onload = (function (file){
+					return function(e){
+						//var img = document.createElement('img');
+						//img.setAttribute("src", this.result);
+						//img.setAttribute("class", "cover-img");
+						//show.appendChild(img);
+						createImg(this.result, boxs);
+					};
+				})(files[i]);
+				reader.readAsDataURL(files[i]);
+				console.log(files[i]);
+			}
+		}
+
+		// 传入 base64 编码的数值，生成一个图片 div，并将其添加到父节点中
+		function createImg(content, parent){
+			var img = $("<img src=" + content + ">");
+			var divDelete = $("<div class='delete' onclick='removeImg(this);'>x</div>");
+			var div = $("<div class='box'></div>");
+			div.append(img);
+			div.append(divDelete);
+			parent.append(div);
+		}
+
+		function removeImg(obj){
+			$(obj).parent().remove();
+		}
+	</script>
+</body>
+</html>
